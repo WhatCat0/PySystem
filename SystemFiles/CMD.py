@@ -1,11 +1,11 @@
 import System
 
-while System.registry.runingCMD:
+while System.other.runingCMD:
     cmd = input(System.os.getcwd() + '\\')
     match cmd.split():
         case ["quit"]:
-            System.runingCMD = False
-            System.runing = False
+            System.other.runingCMD = False
+            System.other.runing = False
             exit(0)
         case ['pc', command]:
             exec(command)

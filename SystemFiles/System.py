@@ -1,5 +1,5 @@
 import codecs
-import os, sys, shutil, CMD
+import os, sys, shutil, json
 
 class directores:
     def GetListDir():
@@ -34,29 +34,22 @@ class files:
         else:
             return 'Error: file not found'  
     def startFile(file):
-        registry.filestart = file
-        indexFOF = 2
-        match os.path.splitext(file)[1]:
-            case [".json"]:
-                indexFOF = 0
-            case [".py"]:
-                indexFOF = 1
-            case [".txt"]:
-                indexFOF = 2
+        other.filestart = file
         directores.cd('ProgramFiles/OFA')
-        f = codecs.open(f'{os.getcwd()}/{os.path.splitext(file)[1]}/{registry.FOF[indexFOF]}', "r", "utf-8" )
+        f = codecs.open(f'{os.getcwd()}/{os.path.splitext(file)[1]}/{other.getRegistry()["FOF"][os.path.splitext(file)[1]]}', "r", "utf-8" )
         exec(f.read())
         f.close()
 class info:
     pythonversion = sys.version
     platform = sys.platform
-class registry:
-    FOF = ['defalt.py', 'defalt.py', 'defalt.py']
+class other:
     filestart = None
     runing = True
     runingCMD = True
-
-print("Welcome to PythonSystem build 7(beta)!")
+    def getRegistry():
+        with open('SystemFiles/registry.json', 'r') as f:
+            return json.load(f.read)
+print("Welcome to PySystem build 7 (Сan't open files!).")
 print(info.pythonversion + ' on '
     +  info.platform )
 
@@ -64,4 +57,4 @@ if __name__ == '__main__':
     files
     directores
     info   
-    registry
+    other
