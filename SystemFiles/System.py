@@ -49,7 +49,7 @@ class other:
     def getRegistry():
         with open('SystemFiles/registry.json', 'r') as f:
             return json.load(f.read)
-print("Welcome to PySystem build 7 (Сan't open files!).")
+print("Welcome to PySystem v7.0 beta")
 print(info.pythonversion + ' on '
     +  info.platform )
 
