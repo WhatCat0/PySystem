@@ -19,8 +19,8 @@ while System.other.runingCMD:
             print(System.files.deleteFile(file))
         case ['deldir', directory]:
             print(System.directores.delDirectory(directory))
-        case ['mkfile', name]:
-            System.files.createFile(name)
+        case ['mkfile', name, info]:
+            System.files.createFile(name, info)
         case ['install', name]:
             System.os.system(f'pip install {name}')
         case [any]:

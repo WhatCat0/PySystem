@@ -1,6 +1,4 @@
-import codecs
-import os, sys, shutil, json
-
+import codecs, os, sys, shutil, json, cmd
 class directores:
     def GetListDir():
         return os.listdir()
@@ -25,8 +23,9 @@ class directores:
         else:
             return 'Error: directory not found'
 class files:
-    def createFile(file):
-        open(file, "x", encoding = "utf-8")
+    def createFile(file, info):
+        with open(file, 'w', encoding = "utf-8") as f:
+            f.write(info)
     def deleteFile(file):
         if os.path.isfile(file):
             os.remove(file)
@@ -49,7 +48,7 @@ class other:
     def getRegistry():
         with open('SystemFiles/registry.json', 'r') as f:
             return json.load(f.read)
-print("Welcome to PySystem v7.0 beta")
+print("Welcome to PySystem v7.0 beta 2!")
 print(info.pythonversion + ' on '
     +  info.platform )
 
