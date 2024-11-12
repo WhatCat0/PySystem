@@ -23,6 +23,8 @@ while System.other.runingCMD:
             System.files.createFile(name, info)
         case ['install', name]:
             System.os.system(f'pip install {name}')
+        case ['changefile', name, info]:
+            System.files.createFile(name, info)
         case [any]:
             if System.os.path.isfile(cmd):
                 System.files.startFile(cmd)
